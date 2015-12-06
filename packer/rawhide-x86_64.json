@@ -1,0 +1,18 @@
+{
+  "builders": [
+    {
+      "type": "digitalocean",
+      "image": "fedora-23-x64",
+      "region": "fra1",
+      "size": "512mb",
+      "snapshot_name": "rawhide-x86_64"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "/bin/sh -xe {{ .Path }}",
+      "script": "scripts/rawhide.sh"
+    }
+  ]
+}
